@@ -1,0 +1,7 @@
+<div>
+  {% if request.user.is_authenticated %}
+  You are authenticated as {{ request.user.username }}.
+  {% else %}
+  You are not an authenticated user to this site.
+  {% endif %}
+</div>

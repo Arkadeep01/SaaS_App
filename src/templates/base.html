@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block head_title %}SaaS{% endblock head_title %}</title>
+    {% comment %} {% include 'base/css.html' %} {% endcomment %}
+</head>
+<body>
+    {% comment %} {% include 'nav/navbar.html' %} {% endcomment %}
+    {% comment %} {% include 'base/messages.html' with messages=messages %} {% endcomment %}
+    {% block content %}
+    {% endblock content %}
+    {% comment %} {% include 'base/js.html' %} {% endcomment %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Home | {{block.super}} {% endblock head_title %}
+
+{% block content %}
+<section class="py-12 bg-gray-100">
+    <div class="max-w-7xl mx-auto text-center">
+        <h1 class="text-3xl font-extrabold text-gray-900">Choose Your Plan</h1>
+        <p class="mt-4 text-gray-500">Start scaling your workflow today.</p>
+    </div>
+
+    {% include "snippets/welcome-user-msg.html" %}
+
+    Page Visits: {{ visits}}
+    Total Visits: {{ total_visits }}
+</section>
+{% endblock content %} 
