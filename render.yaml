@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: saas-app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn saas_core.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: saas_core.settings

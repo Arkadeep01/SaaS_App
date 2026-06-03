@@ -1,9 +1,17 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = "django-insecure-z)_r5v%h3h!as#*%@da!^)(f3#m3a_m1wzjq&h&vua&+w=wlq+"
-DEBUG = True
-ALLOWED_HOSTS = []
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+DEBUG = os.getenv("DJANGO_DEBUG", "0") == "1"
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".onrender.com",
+]
+
+if DEBUG:
+    ALLOWED_HOSTS += ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -15,7 +23,7 @@ INSTALLED_APPS = [
 
     # My Custom Apps
     "visits",
-    
+
 ]
 
 MIDDLEWARE = [
@@ -75,3 +83,4 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
